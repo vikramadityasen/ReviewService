@@ -9,15 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class ReviewRatingDetails {
 
 	@Id
 	@Column
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer reviewId;
 	@Column
 	private Integer userId;
+	@Column
+	private String movieName;
 	@Column
 	private Float rating;
 	@Column
@@ -27,18 +30,20 @@ public class ReviewRatingDetails {
 
 	@Override
 	public String toString() {
-		return "ReviewRatingDetails [reviewId=" + reviewId + ", userId=" + userId + ", rating=" + rating
-				+ ", ratingDate=" + ratingDate + ", reviewcomments=" + reviewcomments + "]";
+		return "ReviewRatingDetails [reviewId=" + reviewId + ", userId=" + userId + ", movieName=" + movieName
+				+ ", rating=" + rating + ", ratingDate=" + ratingDate + ", reviewcomments=" + reviewcomments + "]";
 	}
 
 	public ReviewRatingDetails() {
 		super();
 	}
 
-	public ReviewRatingDetails(Integer reviewId, Integer userId, Float rating, Date ratingDate, String reviewcomments) {
+	public ReviewRatingDetails(Integer reviewId, Integer userId, String movieName, Float rating, Date ratingDate,
+			String reviewcomments) {
 		super();
 		this.reviewId = reviewId;
 		this.userId = userId;
+		this.movieName = movieName;
 		this.rating = rating;
 		this.ratingDate = ratingDate;
 		this.reviewcomments = reviewcomments;
@@ -83,6 +88,14 @@ public class ReviewRatingDetails {
 
 	public void setReviewcomments(String reviewcomments) {
 		this.reviewcomments = reviewcomments;
+	}
+
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 }
