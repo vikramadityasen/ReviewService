@@ -8,4 +8,6 @@ public interface ReviewRatingService {
 
 	List<ReviewRatingDetails> getAllReviewRatingDetailLists();
 
+	ReviewRatingDetails getReviewRatingDetails(Integer reviewId);
+
 }
